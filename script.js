@@ -37,7 +37,7 @@ function generateUTM() {
     let utmContentValues = [
         document.getElementById('creation_date').value,
         document.getElementById('creative_description').value,
-        document.getElementById('audeince_description').value,
+        document.getElementById('audience_description').value,
         document.getElementById('kpi').value
     ].filter(value => value.trim() !== '').join('_');
 
