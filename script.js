@@ -1,7 +1,7 @@
 function generateUTM() {
 
     // 기본 UTM 변수 정의
-    const baseURL = document.getElementById('base_url').value.trim() || "https://lg.com";
+    const baseURL = (document.getElementById('base_url')?.value || "https://lg.com").trim();
     const source = document.getElementById('utm_source').value;
     const medium = document.getElementById('utm_medium').value;
 
