@@ -1,54 +1,41 @@
 window.onload = function() {
-    document.getElementById("generate-button").addEventListener("click", generateUTM);
+    console.log("페이지 로드 완료! JavaScript 실행 시작");
+
+    // 버튼 클릭 이벤트 추가
+    const generateButton = document.getElementById("generate-button");
+    if (generateButton) {
+        generateButton.addEventListener("click", generateUTM);
+    } else {
+        console.error("'generate-button' ID를 가진 요소를 찾을 수 없습니다!");
+    }
 };
 
 function generateUTM() {
-    console.clear(); // 콘솔 로그 초기화
+    console.clear();
+    console.log("generateUTM() 실행됨!");
+
+    // Base URL 가져오기 (기본값 설정)
+    const baseURL = (document.getElementById('base_url')?.value || "https://lg.com").trim();
+    console.log("Base URL:", baseURL);
+
+    // `querySelectorAll()`을 사용하여 UTM 캠페인 값 자동 수집
+    let utmCampaignValues = [...document.querySelectorAll('[data-utm-campaign]')]
+        .map(input => input.value.trim()) // 각 input의 value 가져오기
+        .filter(value => value !== '') // 빈 값 제거
+        .join('_'); // "_"로 연결
+
+    // `querySelectorAll()`을 사용하여 UTM 콘텐츠 값 자동 수집
+    let utmContentValues = [...document.querySelectorAll('[data-utm-content]')]
+        .map(input => input.value.trim())
+        .filter(value => value !== '')
+        .join('_');
 
     // 기본 UTM 변수 정의
-    const baseURL = (document.getElementById('base_url')?.value || "https://lg.com").trim();
-    const source = document.getElementById('utm_source').value;
-    const medium = document.getElementById('utm_medium').value;
-
-    // utm_campaign에 포함될 값들 (기본값 포함)
-    let utmCampaignValues = [
-        document.getElementById('country_subsidiary').value || "HQ-HS-SEEDING",
-        document.getElementById('product_line').value || "HS",
-        document.getElementById('product_type').value,
-        document.getElementById('country_domain').value,
-        document.getElementById('year').value,
-        document.getElementById('quarter').value,
-        document.getElementById('agency').value || "CNS",
-        document.getElementById('theme').value,
-        document.getElementById('marketing_strategy').value || "Viral",
-        document.getElementById('phase').value,
-        document.getElementById('landing_detail_1').value,
-        document.getElementById('market').value,
-        document.getElementById('creative_format').value,
-        document.getElementById('country_fullname').value,
-        document.getElementById('ad_format').value,
-        document.getElementById('landing_detail_2').value,
-        document.getElementById('funnel_stage').value,
-        document.getElementById('apms').value || "NA",
-        document.getElementById('platform').value,
-        document.getElementById('channel').value,
-        document.getElementById('audience_stratgey').value || "OTH",
-        document.getElementById('bidding_stratgey').value,
-        document.getElementById('kpi_1').value,
-        document.getElementById('campaign_type').value
-    ].filter(value => value.trim() !== '').join('_');
-
-    // utm_content에 포함될 값들
-    let utmContentValues = [
-        document.getElementById('creation_date').value,
-        document.getElementById('creative_description').value,
-        document.getElementById('audience_description').value,
-        document.getElementById('kpi_2').value
-    ].filter(value => value.trim() !== '').join('_');
+    const source = document.getElementById('utm_source')?.value || "";
+    const medium = document.getElementById('utm_medium')?.value || "";
 
     // 기본 URL과 UTM 매개변수 구성
     let utmParams = [];
-
     if (source) utmParams.push(`utm_source=${encodeURIComponent(source)}`);
     if (medium) utmParams.push(`utm_medium=${encodeURIComponent(medium)}`);
     if (utmCampaignValues) utmParams.push(`utm_campaign=${encodeURIComponent(utmCampaignValues)}`);
@@ -57,5 +44,5 @@ function generateUTM() {
     // 최종 URL 생성
     let fullURL = `${baseURL}?${utmParams.join('&')}`;
     document.getElementById('generated-url').value = fullURL;
-    console.log("Generated URL:", fullURL); // 콘솔 로그 출력
+    console.log("Generated URL:", fullURL);
 }
