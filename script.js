@@ -1,48 +1,55 @@
 function generateUTM() {
+
+    // 기본 UTM 변수 정의
+    const baseURL = document.getElementById('base_url').value.trim() || "https://lg.com";
     const source = document.getElementById('utm_source').value;
     const medium = document.getElementById('utm_medium').value;
-    const campaign = document.getElementById('utm_campaign').value;
-    const content = document.getElementById('utm_content').value;
-  
-    let baseURL = (`landing_page=${LandingPage}`);
+
+    // utm_campaign에 포함될 값들 (기본값 포함)
+    let utmCampaignValues = [
+        document.getElementById('country_subsidiary').value || "HQ-HS-SEEDING",
+        document.getElementById('product_line').value || "HS",
+        document.getElementById('product_type').value,
+        document.getElementById('country_domain').value,
+        document.getElementById('year').value,
+        document.getElementById('quarter').value,
+        document.getElementById('agency').value || "CNS",
+        document.getElementById('theme').value,
+        document.getElementById('marketing_strategy').value || "Viral",
+        document.getElementById('phase').value,
+        document.getElementById('landing_detail').value,
+        document.getElementById('market').value,
+        document.getElementById('creative_format').value,
+        document.getElementById('country_fullname').value,
+        document.getElementById('ad_format').value,
+        document.getElementById('landing_detail').value,
+        document.getElementById('funnel_stage').value,
+        document.getElementById('apms').value || "NA",
+        document.getElementById('platform').value,
+        document.getElementById('channel').value,
+        document.getElementById('audience_stratgey').value || "OTH",
+        document.getElementById('bidding_stratgey').value,
+        document.getElementById('kpi').value,
+        document.getElementById('campaign_type').value
+    ].filter(value => value.trim() !== '').join('_');
+
+    // utm_content에 포함될 값들
+    let utmContentValues = [
+        document.getElementById('creation_date').value,
+        document.getElementById('creative_description').value,
+        document.getElementById('audeince_description').value,
+        document.getElementById('kpi').value
+    ].filter(value => value.trim() !== '').join('_');
+
+    // 기본 URL과 UTM 매개변수 구성
     let utmParams = [];
 
-    if (source) utmParams.push(`utm_source=${Source}`);
-    if (medium) utmParams.push(`utm_medium=${Medium}`);
+    if (source) utmParams.push(`utm_source=${source}`);
+    if (medium) utmParams.push(`utm_medium=${medium}`);
+    if (utmCampaignValues) utmParams.push(`utm_campaign=${utmCampaignValues}`);
+    if (utmContentValues) utmParams.push(`utm_content=${utmContentValues}`);
 
-    if (campaign) utmParams.push(`utm_campaign=${Campaign}`); 
-    if (campaign) utmParams.push(`country_subsidiary=${CountrySubsidiary}`);
-    if (campaign) utmParams.push(`product_line=${ProductLine}`);
-    if (campaign) utmParams.push(`product_type=${ProudctType}`); 
-    if (campaign) utmParams.push(`country_domain=${CountryDomain}`);
-    if (campaign) utmParams.push(`year=${Year}`);
-    if (campaign) utmParams.push(`quarter=${Quarter}`);
-    if (campaign) utmParams.push(`agency=${Agency}`);
-    if (campaign) utmParams.push(`theme=${Theme}`);
-    if (campaign) utmParams.push(`marketing_strategy=${MarketingStrategy}`);
-    if (campaign) utmParams.push(`phase=${Phase}`);
-    if (campaign) utmParams.push(`landing_detail=${Landing_detail}`);
-    if (campaign) utmParams.push(`market=${Market}`);
-    if (campaign) utmParams.push(`creative_format=${CreativeFormat}`);
-    if (campaign) utmParams.push(`country_fullname=${CountryFullName}`);
-    if (campaign) utmParams.push(`Ad_format=${AdFormat}`);
-    if (campaign) utmParams.push(`landing_detail=${LandingDetail}`);
-    if (campaign) utmParams.push(`funnel_stage=${FunnelStage}`);
-    if (campaign) utmParams.push(`apms_po=${APMS_PO}`);
-    if (campaign) utmParams.push(`platform=${PlatForm}`);
-    if (campaign) utmParams.push(`channel=${Channel}`);
-    if (campaign) utmParams.push(`audience_strategy=${AudienceStrategy}`); 
-    if (campaign) utmParams.push(`bidding_strategy=${BiddingStrategy}`);
-    if (campaign) utmParams.push(`kpi=${KPI}`);
-    if (campaign) utmParams.push(`campaign_type=${CampaignType}`);
-  
-    if (content) utmParams.push(`utm_content=${content}`); 
-    if (content) utmParams.push(`creation_date=${CreationDate}`); 
-    if (content) utmParams.push(`creative_description=${CreativeDescription}`); 
-    if (content) utmParams.push(`audience_description=${AudienceDescription}`); 
-    if (content) utmParams.push(`kpi=${KPI}`);
-
+    // 최종 URL 생성
     let fullURL = `${baseURL}?${utmParams.join('&')}`;
     document.getElementById('generated-url').value = fullURL;
-  }
-  
+}
