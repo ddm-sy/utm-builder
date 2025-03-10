@@ -22,19 +22,19 @@ function generateUTM() {
         document.getElementById('theme').value,
         document.getElementById('marketing_strategy').value || "Viral",
         document.getElementById('phase').value,
-        document.getElementById('landing_detail').value,
+        document.getElementById('landing_detail_1').value,
         document.getElementById('market').value,
         document.getElementById('creative_format').value,
         document.getElementById('country_fullname').value,
         document.getElementById('ad_format').value,
-        document.getElementById('landing_detail').value,
+        document.getElementById('landing_detail_2').value,
         document.getElementById('funnel_stage').value,
         document.getElementById('apms').value || "NA",
         document.getElementById('platform').value,
         document.getElementById('channel').value,
         document.getElementById('audience_stratgey').value || "OTH",
         document.getElementById('bidding_stratgey').value,
-        document.getElementById('kpi').value,
+        document.getElementById('kpi_1').value,
         document.getElementById('campaign_type').value
     ].filter(value => value.trim() !== '').join('_');
 
@@ -43,7 +43,7 @@ function generateUTM() {
         document.getElementById('creation_date').value,
         document.getElementById('creative_description').value,
         document.getElementById('audience_description').value,
-        document.getElementById('kpi').value
+        document.getElementById('kpi_2').value
     ].filter(value => value.trim() !== '').join('_');
 
     // 기본 URL과 UTM 매개변수 구성
