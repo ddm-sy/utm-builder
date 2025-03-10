@@ -10,8 +10,10 @@
   <div class="container">
     <h1>UTM Builder</h1>
     <form id="utm-form">
-      <label for="landing_page">LandingPage:</label>
-      <input type="text" id="landing_page" placeholder="e.g., https://www.lg.com/global/">
+
+      <!-- 기본 UTM 입력 필드 -->
+      <label for="base_url">Base URL:</label>
+      <input type="text" id="base_url" placeholder="e.g., https://lg.com">
 
       <label for="utm_source">Source:</label>
       <input type="text" id="utm_source" placeholder="e.g., google-ads">
@@ -19,99 +21,94 @@
       <label for="utm_medium">Medium:</label>
       <input type="text" id="utm_medium" placeholder="e.g., cpv">
 
-      <label for="utm_campaign">Campaign:</label>
-      <input type="text" id="utm_campaign" placeholder="e.g., spring_sale">
-        
-        <label for="country_subsidiary">CountrySubsidiary:</label>
-        <input type="text" id="country_subsidiary" placeholder="Fix vale as 'HQ-HS-SEEDING'">
+      <!-- utm_campaign에 포함될 필드 -->
+      <label for="country_subsidiary">Country Subsidiary:</label>
+      <input type="text" id="country_subsidiary" value="HQ-HS-SEEDING">
 
-        <label for="product_line">ProductLine:</label>
-        <input type="text" id="product_line" placeholder="Fix vale as 'HS'">
+      <label for="product_line">Product Line:</label>
+      <input type="text" id="product_line" value="HS">
 
-        <label for="product_type">ProductType:</label>
-        <input type="text" id="product_type" placeholder="e.g., REF">
+      <label for="product_type">Product Type:</label>
+      <input type="text" id="product_type" placeholder="e.g., REF">
 
-        <label for="country_domain">CountryDomain:</label>
-        <input type="text" id="country_domain" placeholder="e.g., GB">
+      <label for="country_domain">Country Domain:</label>
+      <input type="text" id="country_domain" placeholder="e.g., GB">
 
-        <label for="year">Year:</label>
-        <input type="text" id="year" placeholder="e.g., 25">
+      <label for="year">Year:</label>
+      <input type="text" id="year" placeholder="e.g., 25">
 
-        <label for="quarter">Quarter:</label>
-        <input type="text" id="quarter" placeholder="e.g., Q1">
+      <label for="quarter">Quarter:</label>
+      <input type="text" id="quarter" placeholder="e.g., Q1">
 
-        <label for="agency">Agency:</label>
-        <input type="text" id="agency" placeholder="Fix vale as 'CNS'">
+      <label for="agency">Agency:</label>
+      <input type="text" id="agency" value="CNS">
 
-          <label for="theme">Theme:</label>
-          <input type="text" id="theme" placeholder="e.g., InstaView, WashTower, etc.">
+      <label for="theme">Theme:</label>
+      <input type="text" id="theme" placeholder="e.g., InstaView, WashTower">
 
-          <label for="marketing_strategy">MartkeintgStrategy:</label>
-          <input type="text" id="marketing_strategy" placeholder="Fix vale as 'Viral'">
+      <label for="marketing_strategy">Marketing Strategy:</label>
+      <input type="text" id="marketing_strategy" value="Viral">
 
-          <label for="phase">Phase:</label>
-          <input type="text" id="phase" placeholder="e.g., Phase1">
+      <label for="phase">Phase:</label>
+      <input type="text" id="phase" placeholder="e.g., Phase1">
 
-          <label for="landing_detail">LandingDetail:</label>-
-          <input type="text" id="landingpage_Detail" placeholder="e.g., PDP"> 
+      <label for="landing_detail">Landing Detail:</label>
+      <input type="text" id="landing_detail" placeholder="e.g., PDP">
 
-          <label for="market">Market:</label>
-          <input type="text" id="market" placeholder="e.g., UK">
+      <label for="market">Market (HA):</label>
+      <input type="text" id="market" placeholder="e.g., UK">
 
-          <label for="creative_format">CrativeFormat:</label>
-          <input type="text" id="creative_format" placeholder="e.g., VID">
+      <label for="creative_format">Creative Format:</label>
+      <input type="text" id="creative_format" placeholder="e.g., VID">
 
-          <label for="country_fullname">CountryFullName:</label>
-          <input type="text" id="country_fullname" placeholder="e.g., UK">
+      <label for="country_fullname">Country FullName:</label>
+      <input type="text" id="country_fullname" placeholder="e.g., UK">
 
-          <label for="ad_format">AdFormat:</label>
-          <input type="text" id="ad_format" placeholder="e.g.,  "> 
+      <label for="ad_format">Ad Format:</label>
+      <input type="text" id="ad_format" placeholder="e.g., VVC">
 
-        <label for="landing_detail">LandingDetail:</label>
-        <input type="text" id="landingpage_Detail" placeholder="e.g., PDP">
+      <label for="landing_detail">Landing Detail:</label>
+      <input type="text" id="landing_detail" placeholder="e.g., PDP">
 
-        <label for="funnel_stage">FunnelStage:</label>
-        <input type="text" id="funnel_stage" placeholder="e.g., awareness">
+      <label for="funnel_stage">Funnel Stage:</label>
+      <input type="text" id="funnel_stage" placeholder="e.g., awareness">
 
-        <label for="apms_po">APMS_PO:</label>
-        <input type="text" id="apms_po" placeholder="Fixed value as 'NA'">
+      <label for="apms">APMS/PO:</label>
+      <input type="text" id="apms" value="NA">
 
-        <label for="platform">Platform:</label>
-        <input type="text" id="platform" placeholder="e.g., google-ads">
+      <label for="platform">Platform:</label>
+      <input type="text" id="platform" placeholder="e.g., google-ads">
 
-        <label for="channel">Channel:</label>
-        <input type="text" id="channel" placeholder="e.g., Dgen">
+      <label for="channel">Channel:</label>
+      <input type="text" id="channel" placeholder="e.g., Dgen">
 
-        <label for="audience_strategy">AudienceStrategy:</label>
-        <input type="text" id="audence_strategy" placeholder="Fixed value as 'OTH'">
+      <label for="audience_strategy">Audience Strategy:</label>
+      <input type="text" id="audience_strategy" value="OTH">
 
-        <label for="bidding_stratgey">BiddingStrategy:</label>
-        <input type="text" id="bidding_stratgey" placeholder="e.g., CPV">
-
-        <label for="kpi">KPI:</label>
-        <input type="text" id="kpi" placeholder="e.g., VST">
-
-        <label for="campaign_type">CampaingType:</label>
-        <input type="text" id="campaign_type" placeholder="e.g.,NPI">
-
-
-      <label for="utm_content">Content:</label>
-      <input type="text" id="utm_content" placeholder="e.g., ad1">>
-
-      <label for="creation_date">CreationDate:</label>
-      <input type="text" id="creation_date" placeholder="Live Start Date (yyyymmdd)">>
-
-      <label for="creative_description">CreativeDescription:</label>
-      <input type="text" id="creative_description" placeholder="Creative Name (name-seconds-size)">>
-
-      <label for="audience_description">AudeinceDescription:</label>
-      <input type="text" id="Audeince_Description" placeholder="Target Name">>
+      <label for="bidding_stratgey">Bidding Strategy:</label>
+      <input type="text" id="bidding_stratgey" placeholder="e.g., CPV">
 
       <label for="kpi">KPI:</label>
-        <input type="text" id="kpi" placeholder="e.g., VST">
+      <input type="text" id="kpi" placeholder="e.g., VST">
 
+      <label for="campaign_type">Campaign Type:</label>
+      <input type="text" id="campaign_type" placeholder="e.g., NPI">
+
+      <!-- utm_content에 포함될 필드 -->
+      <label for="creation_date">Creation Date:</label>
+      <input type="text" id="creation_date" placeholder="Live Start Date (yyyymmdd)">
+
+      <label for="creative_description">Creative Description:</label>
+      <input type="text" id="creative_description" placeholder="e.g., InstaView-15s-169">
+
+      <label for="audience_description">Audience Description:</label>
+      <input type="text" id="Audeince_Description" placeholder="e.g., Remarketing">
+
+      <label for="kpi">KPI:</label>
+      <input type="text" id="kpi" placeholder="e.g., VST">
 
     <button type="button" onclick="generateUTM()">Generate URL</button>
+
     </form>
 
     <h3>Generated UTM URL:</h3>
