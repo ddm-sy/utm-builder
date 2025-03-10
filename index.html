@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UTM Builder</title>
-  <link rel="stylesheet" href="/utm-builder/assets/css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
@@ -22,90 +22,38 @@
       <input type="text" id="utm_medium" placeholder="e.g., cpv">
 
       <!-- utm_campaign에 포함될 필드 -->
-      <label for="country_subsidiary">Country Subsidiary:</label>
-      <input type="text" id="country_subsidiary" value="HQ-HS-SEEDING">
-
-      <label for="product_line">Product Line:</label>
-      <input type="text" id="product_line" value="HS">
-
-      <label for="product_type">Product Type:</label>
-      <input type="text" id="product_type" placeholder="e.g., REF">
-
-      <label for="country_domain">Country Domain:</label>
-      <input type="text" id="country_domain" placeholder="e.g., GB">
-
-      <label for="year">Year:</label>
-      <input type="text" id="year" placeholder="e.g., 25">
-
-      <label for="quarter">Quarter:</label>
-      <input type="text" id="quarter" placeholder="e.g., Q1">
-
-      <label for="agency">Agency:</label>
-      <input type="text" id="agency" value="CNS">
-
-      <label for="theme">Theme:</label>
-      <input type="text" id="theme" placeholder="e.g., InstaView, WashTower">
-
-      <label for="marketing_strategy">Marketing Strategy:</label>
-      <input type="text" id="marketing_strategy" value="Viral">
-
-      <label for="phase">Phase:</label>
-      <input type="text" id="phase" placeholder="e.g., Phase1">
-
-      <label for="landing_detail_1">Landing Detail:</label>
-      <input type="text" id="landing_detail_1" placeholder="e.g., PDP">
-
-      <label for="market">Market (HA):</label>
-      <input type="text" id="market" placeholder="e.g., UK">
-
-      <label for="creative_format">Creative Format:</label>
-      <input type="text" id="creative_format" placeholder="e.g., VID">
-
-      <label for="country_fullname">Country FullName:</label>
-      <input type="text" id="country_fullname" placeholder="e.g., UK">
-
-      <label for="ad_format">Ad Format:</label>
-      <input type="text" id="ad_format" placeholder="e.g., VVC">
-
-      <label for="landing_detail_2">Landing Detail:</label>
-      <input type="text" id="landing_detail_2" placeholder="e.g., PDP">
-
-      <label for="funnel_stage">Funnel Stage:</label>
-      <input type="text" id="funnel_stage" placeholder="e.g., awareness">
-
-      <label for="apms">APMS/PO:</label>
-      <input type="text" id="apms" value="NA">
-
-      <label for="platform">Platform:</label>
-      <input type="text" id="platform" placeholder="e.g., google-ads">
-
-      <label for="channel">Channel:</label>
-      <input type="text" id="channel" placeholder="e.g., Dgen">
-
-      <label for="audience_strategy">Audience Strategy:</label>
-      <input type="text" id="audience_strategy" value="OTH">
-
-      <label for="bidding_stratgey">Bidding Strategy:</label>
-      <input type="text" id="bidding_stratgey" placeholder="e.g., cpv">
-
-      <label for="kpi_1">KPI:</label>
-      <input type="text" id="kpi_1" placeholder="e.g., VST">
-
-      <label for="campaign_type">Campaign Type:</label>
-      <input type="text" id="campaign_type" placeholder="e.g., NPI">
+      <h3>UTM Campaign</h3>
+      <input type="text" value="HQ-HS-SEEDING" data-utm-campaign>
+      <input type="text" value="HS" data-utm-campaign>
+      <input type="text" placeholder="e.g., REF" data-utm-campaign>
+      <input type="text" placeholder="e.g., GB" data-utm-campaign>
+      <input type="text" placeholder="e.g., 25" data-utm-campaign>
+      <input type="text" placeholder="e.g., Q1" data-utm-campaign>
+      <input type="text" value="CNS" data-utm-campaign>
+      <input type="text" placeholder="e.g., InstaView, WashTower" data-utm-campaign>
+      <input type="text" value="Viral" data-utm-campaign>
+      <input type="text" placeholder="e.g., Phase1" data-utm-campaign>
+      <input type="text" placeholder="e.g., PDP" data-utm-campaign>
+      <input type="text" placeholder="e.g., UK" data-utm-campaign>
+      <input type="text" placeholder="e.g., VID" data-utm-campaign>
+      <input type="text" placeholder="e.g., UK" data-utm-campaign>
+      <input type="text" placeholder="e.g., VVC" data-utm-campaign>
+      <input type="text" placeholder="e.g., PDP" data-utm-campaign>
+      <input type="text" placeholder="e.g., awareness" data-utm-campaign>
+      <input type="text" value="NA" data-utm-campaign>
+      <input type="text" placeholder="e.g., google-ads" data-utm-campaign>
+      <input type="text" placeholder="e.g., Dgen" data-utm-campaign>
+      <input type="text" value="OTH" data-utm-campaign>
+      <input type="text" placeholder="e.g., cpv" data-utm-campaign>
+      <input type="text" placeholder="e.g., VST" data-utm-campaign>
+      <input type="text" placeholder="e.g., NPI" data-utm-campaign>
 
       <!-- utm_content에 포함될 필드 -->
-      <label for="creation_date">Creation Date:</label>
-      <input type="text" id="creation_date" placeholder="Live Start Date (yyyymmdd)">
-
-      <label for="creative_description">Creative Description:</label>
-      <input type="text" id="creative_description" placeholder="e.g., InstaView-15s-169">
-
-      <label for="audience_description">Audience Description:</label>
-      <input type="text" id="audience_description" placeholder="e.g., Remarketing">
-
-      <label for="kpi_2">KPI:</label>
-      <input type="text" id="kpi_2" placeholder="e.g., VST">
+      <h3>UTM Content</h3>
+      <input type="text" placeholder="Live Start Date (yyyymmdd)" data-utm-content>
+      <input type="text" placeholder="e.g., InstaView-15s-169" data-utm-content>
+      <input type="text" placeholder="e.g., Remarketing" data-utm-content>
+      <input type="text" placeholder="e.g., VST" data-utm-content>
 
       <button type="button" id="generate-button">Generate URL</button>
 
