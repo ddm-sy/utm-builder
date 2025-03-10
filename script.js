@@ -1,4 +1,9 @@
+window.onload = function() {
+    document.getElementById("generate-button").addEventListener("click", generateUTM);
+};
+
 function generateUTM() {
+    console.clear(); // 콘솔 로그 초기화
 
     // 기본 UTM 변수 정의
     const baseURL = (document.getElementById('base_url')?.value || "https://lg.com").trim();
@@ -44,12 +49,13 @@ function generateUTM() {
     // 기본 URL과 UTM 매개변수 구성
     let utmParams = [];
 
-    if (source) utmParams.push(`utm_source=${source}`);
-    if (medium) utmParams.push(`utm_medium=${medium}`);
-    if (utmCampaignValues) utmParams.push(`utm_campaign=${utmCampaignValues}`);
-    if (utmContentValues) utmParams.push(`utm_content=${utmContentValues}`);
+    if (source) utmParams.push(`utm_source=${encodeURIComponent(source)}`);
+    if (medium) utmParams.push(`utm_medium=${encodeURIComponent(medium)}`);
+    if (utmCampaignValues) utmParams.push(`utm_campaign=${encodeURIComponent(utmCampaignValues)}`);
+    if (utmContentValues) utmParams.push(`utm_content=${encodeURIComponent(utmContentValues)}`);
 
     // 최종 URL 생성
     let fullURL = `${baseURL}?${utmParams.join('&')}`;
     document.getElementById('generated-url').value = fullURL;
+    console.log("Generated URL:", fullURL); // 콘솔 로그 출력
 }
